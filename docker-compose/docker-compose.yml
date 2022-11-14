@@ -1,0 +1,31 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.20
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /docker-volumes/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /docker-volumes/home/www:/home/www
+      - /docker-volumes/nginx/log:/var/log/nginx
+      - /docker-volumes/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - /docker-volumes/nginx/html:/usr/share/nginx/html
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.30
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - /docker-volumes/mysql/mydir:/mydir
+      - /docker-volumes/mysql/datadir:/var/lib/mysql
+      - /docker-volumes/mysql/conf/my.cnf:/etc/my.cnf
+      # 数据库还原目录 可将需要还原的sql文件放在这里
+      - /docker-volumes/mysql/source:/docker-entrypoint-initdb.d
+    environment:
+      - "MYSQL_ROOT_PASSWORD=yourpassword"
+      - "MYSQL_DATABASE=yourdbname"
+      - "TZ=Asia/Shanghai"
