@@ -1,3 +1,4 @@
+docker network create --driver bridge garden-backend-network
 docker-compose -f ./docker-compose/docker-compose.yml up -d
 
 : << EOF
