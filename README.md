@@ -2,7 +2,9 @@
 
 ## profile
 
-for deploy garden-be project, including:
+for deploy garden-be project
 
-### MySql
-- 
+sequence:
+1. garden-deploy
+2. garden-be
+3. garden-fe
