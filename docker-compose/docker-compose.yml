@@ -19,7 +19,7 @@ services:
       - mysql-mydir:/mydir
       - mysql-datadir:/var/lib/mysql
       - ./mysql/my.cnf:/etc/my.cnf
-      # 数据库还原目录 可将需要还原的sql文件放在这里
+      # 数据库还原目录 可将需要还原的 sql 文件放在这里
       - mysql-source:/docker-entrypoint-initdb.d
       - ./mysql/init.sh:/init.sh
   phpmyadmin:
