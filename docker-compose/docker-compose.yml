@@ -37,7 +37,8 @@ services:
     ports:
       - 8081:80
 
-# 默认目录：/var/lib/docker/volumes/
+# 默认目录：
+# linux /var/lib/docker/volumes/
 volumes:
   mysql-mydir:
   mysql-datadir:
